@@ -108,6 +108,13 @@ transition:.3s;
 nav a:hover{
 
 color:#e0e0e0;
+transform:translateY(-2px);
+
+}
+
+nav a:hover::after{
+
+width:100%;
 
 }
 
@@ -550,7 +557,6 @@ font-size:24px;
 <li><a href="#layanan">Layanan</a></li>
 <li><a href="#harga">Harga</a></li>
 <li><a href="#testimoni">Testimoni</a></li>
-<li><a href="#kontak">Kontak</a></li>
 
 </ul>
 
@@ -782,7 +788,38 @@ Instagram : @4CE
 
 <a class="whatsapp" href="#">💬</a>
 
-<script src="script.js"></script>
+<script>
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+const sections = document.querySelectorAll('section[id], footer[id]');
+
+function setActiveNav() {
+    let current = '';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 160;
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.toggle(
+            'active',
+            link.getAttribute('href') === '#' + current
+        );
+    });
+}
+
+navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        navLinks.forEach(item => item.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+window.addEventListener('scroll', setActiveNav);
+window.addEventListener('load', setActiveNav);
+</script>
 
 </body>
 </html>
