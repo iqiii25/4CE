@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JokVet80 | Jasa Joki Rank Mobile Legends</title>
+<title>4CE | Jasa Joki Rank Mobile Legends</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -130,7 +130,7 @@ width:100%;
 
 }
 
-.hero{
+.inti{
 
 min-height:100vh;
 
@@ -144,26 +144,26 @@ flex-wrap:wrap;
 
 }
 
-.hero-text{
+.inti-text{
 
 max-width:550px;
 
 }
 
-.hero-text h1{
+.inti-text h1{
 
 font-size:60px;
 line-height:1.1;
 
 }
 
-.hero-text span{
+.inti-text span{
 
 color:#e0e0e0;
 
 }
 
-.hero-text p{
+.inti-text p{
 
 margin:25px 0;
 color:#d0d0d0;
@@ -199,7 +199,7 @@ box-shadow:0 15px 35px #b8b8b855;
 
 }
 
-.hero-img{
+.inti-img{
 
 width:310px;
 height:310px;
@@ -400,8 +400,6 @@ body{
 overflow-x:hidden;
 }
 
-/* Navbar */
-
 nav{
 padding:15px 20px;
 flex-direction:column;
@@ -423,9 +421,7 @@ nav ul li{
 font-size:15px;
 }
 
-/* Hero */
-
-.hero{
+.inti{
 padding:140px 20px 70px;
 flex-direction:column-reverse;
 justify-content:center;
@@ -434,27 +430,26 @@ gap:40px;
 min-height:auto;
 }
 
-.hero-text{
+.inti-text{
 max-width:100%;
 }
 
-.hero-text h1{
+.inti-text h1{
 font-size:36px;
 line-height:1.2;
 }
 
-.hero-text p{
+.inti-text p{
 font-size:15px;
 line-height:28px;
 }
 
-.hero-img{
+.inti-img{
 width:220px;
 height:220px;
 font-size:80px;
 }
 
-/* Button */
 
 .button{
 width:100%;
@@ -462,7 +457,6 @@ padding:15px;
 text-align:center;
 }
 
-/* Section */
 
 section{
 padding:60px 20px;
@@ -473,7 +467,6 @@ font-size:30px;
 margin-bottom:35px;
 }
 
-/* Grid */
 
 .grid{
 grid-template-columns:1fr;
@@ -484,13 +477,11 @@ gap:20px;
 padding:25px;
 }
 
-/* Harga */
 
-.price{
+.harga{
 font-size:28px;
 }
 
-/* Stats */
 
 .stats{
 grid-template-columns:repeat(2,1fr);
@@ -505,8 +496,6 @@ padding:25px 15px;
 font-size:30px;
 }
 
-/* Testimoni */
-
 .testi{
 grid-template-columns:1fr;
 }
@@ -514,8 +503,6 @@ grid-template-columns:1fr;
 .testi .card{
 padding:25px;
 }
-
-/* Footer */
 
 footer{
 padding:30px 20px;
@@ -528,8 +515,6 @@ font-size:24px;
 footer p{
 font-size:14px;
 }
-
-/* WhatsApp */
 
 .whatsapp{
 width:55px;
@@ -562,9 +547,9 @@ font-size:24px;
 
 </nav>
 
-<section class="hero" id="home">
+<section class="inti" id="home">
 
-<div class="hero-text">
+<div class="inti-text">
 
 <h1>Push Rank <span>Mobile Legends</span> Lebih Cepat.</h1>
 
@@ -581,7 +566,7 @@ Order Sekarang
 
 </div>
 
-<div class="hero-img">
+<div class="inti-img">
 
 🎮
 
@@ -811,14 +796,22 @@ function setActiveNav() {
 }
 
 navLinks.forEach(link => {
-    link.addEventListener('click', function() {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute('href'));
+
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
         navLinks.forEach(item => item.classList.remove('active'));
         this.classList.add('active');
     });
 });
-
-window.addEventListener('scroll', setActiveNav);
-window.addEventListener('load', setActiveNav);
 </script>
 
 </body>
