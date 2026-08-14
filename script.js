@@ -1,11 +1,4 @@
-/* =====================================
-   JOKVET80 - SCRIPT.JS
-===================================== */
 
-
-/* =====================================
-   NAVBAR SCROLL
-===================================== */
 
 const navbar = document.querySelector("nav");
 
@@ -25,35 +18,6 @@ window.addEventListener("scroll", () => {
 
 });
 
-
-/* =====================================
-   SMOOTH SCROLL
-===================================== */
-
-document.querySelectorAll("nav a").forEach(link => {
-
-    link.addEventListener("click", function(e) {
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if (target) {
-
-            e.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-
-    });
-
-});
-
-
-/* =====================================
-   CARD ANIMATION
-===================================== */
 
 const cards = document.querySelectorAll(".card");
 
@@ -85,9 +49,6 @@ cards.forEach(card => {
 });
 
 
-/* =====================================
-   COUNTER
-===================================== */
 
 const counters = document.querySelectorAll(".stat h2");
 
@@ -151,9 +112,7 @@ counters.forEach(counter => {
 });
 
 
-/* =====================================
-   WHATSAPP BUTTON
-===================================== */
+
 
 const wa = document.querySelector(".whatsapp");
 
@@ -176,9 +135,6 @@ if (wa) {
 }
 
 
-/* =====================================
-   ORDER BUTTON
-===================================== */
 
 document.querySelectorAll(".button").forEach(button => {
 
@@ -199,9 +155,7 @@ document.querySelectorAll(".button").forEach(button => {
 });
 
 
-/* =====================================
-   ACTIVE NAVBAR
-===================================== */
+
 
 const sections = document.querySelectorAll("section[id], footer[id]");
 const navLinks = document.querySelectorAll("nav a");
@@ -210,7 +164,7 @@ function activeMenu() {
 
     let current = "";
 
-    // kalau mentok paling bawah
+
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 5) {
         current = "kontak";
     } else {
