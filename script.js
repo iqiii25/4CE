@@ -157,40 +157,34 @@ document.querySelectorAll(".button").forEach(button => {
 
 
 
-const sections = document.querySelectorAll("section[id], footer[id]");
+const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll("nav a");
 
 function activeMenu() {
 
     let current = "";
 
+    sections.forEach(section => {
 
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 5) {
-        current = "kontak";
-    } else {
+        const top = section.offsetTop - 150;
+        const bottom = top + section.offsetHeight;
 
-        sections.forEach(section => {
+        if (
+            window.scrollY >= top &&
+            window.scrollY < bottom
+        ) {
+            current = section.id;
+        }
 
-            const top = section.offsetTop - 120;
-            const height = section.offsetHeight;
-
-            if (
-                window.scrollY >= top &&
-                window.scrollY < top + height
-            ) {
-                current = section.id;
-            }
-
-        });
-
-    }
+    });
 
     navLinks.forEach(link => {
 
-        link.classList.toggle(
-            "active",
-            link.getAttribute("href") === "#" + current
-        );
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
 
     });
 
