@@ -183,6 +183,34 @@ function activeMenu() {
     });
 
     navLinks.forEach(link => {
+  link.addEventListener("click", e => {
+
+    const targetId = link.getAttribute("href");
+
+    if (!targetId || !targetId.startsWith("#")) return;
+
+    const target = document.querySelector(targetId);
+
+    if (!target) return;
+
+    e.preventDefault();
+
+    const navHeight = 120;
+
+    const targetPosition =
+      target.getBoundingClientRect().top +
+      window.scrollY -
+      navHeight;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth"
+    });
+
+  });
+});
+
+    navLinks.forEach(link => {
 
         link.classList.remove("active");
 
