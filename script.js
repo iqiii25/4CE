@@ -4,16 +4,20 @@ const navbar = document.querySelector("nav");
 
 window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 50) {
+    if (window.scrollY > 40) {
 
-        navbar.style.background = "rgba(8,17,31,.97)";
-        navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,.35)";
+        navbar.style.boxShadow =
+            "0 20px 45px -15px rgba(0,0,0,.55)";
+
+        navbar.style.opacity = "1";
+        navbar.style.visibility = "visible";
 
     } else {
 
-        navbar.style.background = "rgba(8,17,31,.85)";
         navbar.style.boxShadow = "none";
 
+        navbar.style.opacity = "1";
+        navbar.style.visibility = "visible";
     }
 
 });
