@@ -1,61 +1,26 @@
-/* =====================================
-   JOKVET80 - SCRIPT.JS
-===================================== */
-
-
-/* =====================================
-   NAVBAR SCROLL
-===================================== */
-
 const navbar = document.querySelector("nav");
 
 window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 50) {
+    if (window.scrollY > 40) {
 
-        navbar.style.background = "rgba(8,17,31,.97)";
-        navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,.35)";
+        navbar.style.boxShadow =
+            "0 20px 45px -15px rgba(0,0,0,.55)";
+
+        navbar.style.opacity = "1";
+        navbar.style.visibility = "visible";
 
     } else {
 
-        navbar.style.background = "rgba(8,17,31,.85)";
         navbar.style.boxShadow = "none";
+
+        navbar.style.opacity = "1";
+        navbar.style.visibility = "visible";
 
     }
 
 });
 
-
-/* =====================================
-   SMOOTH SCROLL
-===================================== */
-
-document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-
-    link.addEventListener("click", function(e) {
-
-        const href = this.getAttribute("href");
-
-        const target = document.querySelector(href);
-
-        if (target) {
-
-            e.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-
-    });
-
-});
-
-
-/* =====================================
-   CARD ANIMATION
-===================================== */
 
 const cards = document.querySelectorAll(".card");
 
@@ -75,28 +40,20 @@ const observer = new IntersectionObserver(entries => {
     });
 
 }, {
-
     threshold: .15
-
 });
 
 
 cards.forEach(card => {
 
     card.style.opacity = "0";
-
     card.style.transform = "translateY(50px)";
-
     card.style.transition = ".6s";
 
     observer.observe(card);
 
 });
 
-
-/* =====================================
-   COUNTER
-===================================== */
 
 const counters = document.querySelectorAll(".stat h2");
 
@@ -164,9 +121,9 @@ counters.forEach(counter => {
 });
 
 
-/* =====================================
-   WHATSAPP BUTTON
-===================================== */
+const waLink =
+    "https://wa.me/6283184140131?text=Halo%20Admin,%20Saya%20ingin%20order%20Jasa%20Joki%20Rank";
+
 
 const wa = document.querySelector(".whatsapp");
 
@@ -177,11 +134,8 @@ if (wa) {
         e.preventDefault();
 
         window.open(
-
-            "https://wa.me/6281234567890?text=Halo%20Admin,%20Saya%20ingin%20order%20Jasa%20Joki%20Rank",
-
+            waLink,
             "_blank"
-
         );
 
     });
@@ -189,22 +143,27 @@ if (wa) {
 }
 
 
-/* =====================================
-   ORDER BUTTON
-===================================== */
-
 document.querySelectorAll(".button").forEach(button => {
 
     button.addEventListener("click", function(e) {
 
+        const href = this.getAttribute("href");
+
+        if (
+            href &&
+            href.startsWith("#") &&
+            href !== "#"
+        ) {
+
+            return;
+
+        }
+
         e.preventDefault();
 
         window.open(
-
-            "https://wa.me/6281234567890?text=Halo%20Admin,%20Saya%20ingin%20order%20Jasa%20Joki%20Rank",
-
+            waLink,
             "_blank"
-
         );
 
     });
@@ -212,24 +171,58 @@ document.querySelectorAll(".button").forEach(button => {
 });
 
 
-/* =====================================
-   ACTIVE NAVBAR
-===================================== */
+const sections = document.querySelectorAll(
+    "#home, #layanan, #harga, #testimoni, #kontak"
+);
 
-const sections = document.querySelectorAll("section[id], footer[id]");
+const navLinks = document.querySelectorAll("nav a");
 
-const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", e => {
+
+        const targetId = link.getAttribute("href");
+
+        if (!targetId || !targetId.startsWith("#")) return;
+
+        const target = document.querySelector(targetId);
+
+        if (!target) return;
+
+        e.preventDefault();
+
+        const navHeight = 120;
+
+        const targetPosition =
+            target.getBoundingClientRect().top +
+            window.scrollY -
+            navHeight;
+
+        window.scrollTo({
+
+            top: targetPosition,
+            behavior: "smooth"
+
+        });
+
+    });
+
+});
 
 
 function activeMenu() {
 
     let current = "home";
 
-    const scrollPosition = window.scrollY + 180;
+    const scrollPosition =
+        window.scrollY + 180;
 
     sections.forEach(section => {
 
-        if (scrollPosition >= section.offsetTop) {
+        if (
+            scrollPosition >= section.offsetTop
+        ) {
 
             current = section.id;
 
@@ -239,8 +232,9 @@ function activeMenu() {
 
 
     if (
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 5
+        window.innerHeight +
+        window.scrollY >=
+        document.documentElement.scrollHeight - 10
     ) {
 
         current = "kontak";
@@ -250,208 +244,28 @@ function activeMenu() {
 
     navLinks.forEach(link => {
 
-        link.classList.toggle(
-
-            "active",
-
-            link.getAttribute("href") === "#" + current
-
-        );
-
-    });
-
-}
-
-
-window.addEventListener("scroll", activeMenu);
-
-window.addEventListener("load", activeMenu);        }
-
-    });
-
-}, {
-    threshold: .15
-});
-
-cards.forEach(card => {
-
-    card.style.opacity = "0";
-    card.style.transform = "translateY(50px)";
-    card.style.transition = ".6s";
-
-    observer.observe(card);
-
-});
-
-
-
-const counters = document.querySelectorAll(".stat h2");
-
-const counterObserver = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-        if (!entry.isIntersecting) return;
-
-        const counter = entry.target;
-
-        const text = counter.innerText;
-
-        const target = parseInt(text.replace(/\D/g, ""));
-
-        let current = 0;
-
-        const update = () => {
-
-            const increment = Math.ceil(target / 80);
-
-            current += increment;
-
-            if (current > target)
-                current = target;
-
-            if (text.includes("%")) {
-
-                counter.innerText = current + "%";
-
-            } else if (text.includes("+")) {
-
-                counter.innerText = current + "+";
-
-            } else {
-
-                counter.innerText = current;
-
-            }
-
-            if (current < target) {
-
-                requestAnimationFrame(update);
-
-            }
-
-        }
-
-        update();
-
-        counterObserver.unobserve(counter);
-
-    });
-
-});
-
-counters.forEach(counter => {
-
-    counterObserver.observe(counter);
-
-});
-
-
-
-
-const wa = document.querySelector(".whatsapp");
-
-if (wa) {
-
-    wa.addEventListener("click", function(e) {
-
-        e.preventDefault();
-
-        window.open(
-
-            "https://wa.me/6283184140131?text=Halo%20Admin,%20Saya%20ingin%20order%20Jasa%20Joki%20Rank",
-
-            "_blank"
-
-        );
-
-    });
-
-}
-
-
-
-document.querySelectorAll(".button").forEach(button => {
-
-    button.addEventListener("click", function(e) {
-
-        e.preventDefault();
-
-        window.open(
-
-            "https://wa.me/6281234567890?text=Halo%20Admin,%20Saya%20ingin%20order%20Jasa%20Joki%20Rank",
-
-            "_blank"
-
-        );
-
-    });
-
-});
-
-
-
-
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll("nav a");
-
-function activeMenu() {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const top = section.offsetTop - 150;
-        const bottom = top + section.offsetHeight;
-
-        if (
-            window.scrollY >= top &&
-            window.scrollY < bottom
-        ) {
-            current = section.id;
-        }
-
-    });
-
-    navLinks.forEach(link => {
-  link.addEventListener("click", e => {
-
-    const targetId = link.getAttribute("href");
-
-    if (!targetId || !targetId.startsWith("#")) return;
-
-    const target = document.querySelector(targetId);
-
-    if (!target) return;
-
-    e.preventDefault();
-
-    const navHeight = 120;
-
-    const targetPosition =
-      target.getBoundingClientRect().top +
-      window.scrollY -
-      navHeight;
-
-    window.scrollTo({
-      top: targetPosition,
-      behavior: "smooth"
-    });
-
-  });
-});
-
-    navLinks.forEach(link => {
-
         link.classList.remove("active");
 
-        if (link.getAttribute("href") === "#" + current) {
+        if (
+            link.getAttribute("href") ===
+            "#" + current
+        ) {
+
             link.classList.add("active");
+
         }
 
     });
 
 }
 
-window.addEventListener("scroll", activeMenu);
-window.addEventListener("load", activeMenu);
+
+window.addEventListener(
+    "scroll",
+    activeMenu
+);
+
+window.addEventListener(
+    "load",
+    activeMenu
+);

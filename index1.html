@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4CE | Jasa Joki Rank Mobile Legends</title>
+<script src="script.js" defer></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#1b1d20;
+color:#fff;
+}
+
+body::before{
+content:"";
+position:fixed;
+width:500px;
+height:500px;
+background:#c0c0c033;
+filter:blur(180px);
+left:-200px;
+top:-150px;
+z-index:-1;
+}
+
+body::after{
+content:"";
+position:fixed;
+width:450px;
+height:450px;
+background:#e8e8e825;
+filter:blur(180px);
+right:-150px;
+bottom:-120px;
+z-index:-1;
+}
+
+nav{
+
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:rgba(35,37,40,.88);
+backdrop-filter:blur(15px);
+
+z-index:100;
+
+}
+
+.logo{
+
+font-size:28px;
+font-weight:700;
+color:#e0e0e0;
+
+}
+
+nav ul{
+
+display:flex;
+list-style:none;
+gap:35px;
+
+}
+
+nav a{
+
+position:relative;
+transition:.3s;
+color: white;
+text-decoration: none;
+}
+
+nav a::after{
+
+content:'';
+
+position:absolute;
+
+left:0;
+bottom:-8px;
+
+width:0%;
+height:2px;
+
+background:#e0e0e0;
+
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:#e0e0e0;
+transform:translateY(-2px);
+
+}
+
+nav a:hover::after{
+
+width:100%;
+
+}
+
+nav a.active{
+
+color:#e0e0e0;
+
+}
+
+nav a.active::after{
+
+width:100%;
+
+}
+
+.inti{
+
+min-height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:120px 8%;
+
+flex-wrap:wrap;
+
+}
+
+.inti-text{
+
+max-width:550px;
+
+}
+
+.inti-text h1{
+
+font-size:60px;
+line-height:1.1;
+
+}
+
+.inti-text span{
+
+color:#e0e0e0;
+
+}
+
+.inti-text p{
+
+margin:25px 0;
+color:#d0d0d0;
+line-height:30px;
+
+}
+
+.button{
+
+display:inline-block;
+
+padding:16px 35px;
+
+background:#b8b8b8;
+
+border-radius:12px;
+
+text-decoration:none;
+
+color:black;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.button:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 15px 35px #b8b8b855;
+
+}
+
+.inti-img{
+
+width:310px;
+height:310px;
+
+border-radius:25px;
+
+background:linear-gradient(135deg,#5f6368,#c8c8c8);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:140px;
+
+}
+
+section{
+
+padding:90px 8%;
+
+}
+
+.title{
+
+text-align:center;
+font-size:40px;
+margin-bottom:50px;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:25px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.09);
+
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,.18);
+
+border-radius:20px;
+
+padding:30px;
+
+transition:.35s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+border-color:#d9d9d9;
+
+box-shadow:0 0 30px #b8b8b830;
+
+}
+
+.card h3{
+
+margin-bottom:10px;
+
+}
+
+.price{
+
+font-size:34px;
+font-weight:700;
+color:#f0f0f0;
+
+margin:20px 0;
+
+}
+
+.feature{
+
+align-items:center;
+gap:12px;
+margin:15px 0;
+color:#d6d6d6;
+display:grid;
+grid-template-columns:20px 1fr;
+gap:10px;
+}
+
+
+
+.stats{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+
+}
+
+.stat{
+
+background:#303236;
+
+padding:35px;
+
+text-align:center;
+
+border-radius:18px;
+
+}
+
+.stat h2{
+
+font-size:40px;
+color:#ededed;
+
+}
+
+.testi{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+
+}
+
+.testi .card{
+
+padding:35px;
+
+}
+
+footer{
+
+background:#121416;
+
+padding:40px;
+
+text-align:center;
+
+color:#aaa;
+
+}
+
+.whatsapp{
+
+position:fixed;
+
+right:30px;
+bottom:30px;
+
+width:65px;
+height:65px;
+
+background:#25D366;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:30px;
+
+text-decoration:none;
+
+color:white;
+
+box-shadow:0 15px 30px rgba(0,0,0,.4);
+
+}
+
+nav ul{
+padding-left:0;
+}
+
+.card .button{
+
+display:block;
+margin-top:25px;
+text-align:center;
+
+}
+
+img{
+    width:70%;
+}
+
+
+
+@media (max-width: 768px){
+
+body{
+overflow-x:hidden;
+}
+
+nav{
+padding:15px 20px;
+flex-direction:column;
+gap:15px;
+}
+
+.logo{
+font-size:24px;
+}
+
+nav ul{
+width:100%;
+justify-content:center;
+flex-wrap:wrap;
+gap:18px;
+}
+
+nav ul li{
+font-size:15px;
+}
+
+.inti{
+padding:140px 20px 70px;
+flex-direction:column-reverse;
+justify-content:center;
+text-align:center;
+gap:40px;
+min-height:auto;
+}
+
+.inti-text{
+max-width:100%;
+}
+
+.inti-text h1{
+font-size:36px;
+line-height:1.2;
+}
+
+.inti-text p{
+font-size:15px;
+line-height:28px;
+}
+
+.inti-img{
+width:220px;
+height:220px;
+font-size:80px;
+}
+
+
+.button{
+width:100%;
+padding:15px;
+text-align:center;
+}
+
+
+section{
+padding:60px 20px;
+}
+
+.title{
+font-size:30px;
+margin-bottom:35px;
+}
+
+
+.grid{
+grid-template-columns:1fr;
+gap:20px;
+}
+
+.card{
+padding:25px;
+}
+
+
+.harga{
+font-size:28px;
+}
+
+
+.stats{
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.stat{
+padding:25px 15px;
+}
+
+.stat h2{
+font-size:30px;
+}
+
+.testi{
+grid-template-columns:1fr;
+}
+
+.testi .card{
+padding:25px;
+}
+
+footer{
+padding:30px 20px;
+}
+
+footer h2{
+font-size:24px;
+}
+
+footer p{
+font-size:14px;
+}
+
+.whatsapp{
+width:55px;
+height:55px;
+right:18px;
+bottom:18px;
+font-size:24px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">4CE</div>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+<li><a href="#layanan">Layanan</a></li>
+<li><a href="#harga">Harga</a></li>
+<li><a href="#testimoni">Testimoni</a></li>
+
+</ul>
+
+</nav>
+
+<section class="inti" id="home">
+
+<div class="inti-text">
+
+<h1>Push Rank <span>Mobile Legends</span> Lebih Cepat.</h1>
+
+<p>
+
+Jasa joki rank terpercaya dengan player berpengalaman.
+Fast respon, proses cepat, dan update progres secara berkala.
+
+</p>
+
+<a class="button" href="#">
+Order Sekarang
+</a>
+
+</div>
+
+<div class="inti-img">
+
+🎮
+
+</div>
+
+
+
+<div class="stat">
+
+<div class="stat">
+<h2>0</h2>
+<p>Order Selesai</p>
+</div>
+
+<div class="stat">
+<h2>0</h2>
+<p>Pelanggan Puas</p>
+</div>
+
+<div class="stat">
+<h2>0</h2>
+<p>Customer Support</p>
+</div>
+
+<div class="stat">
+<h2>5★</h2>
+<p>Rating Pelayanan</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="layanan">
+
+<h2 class="title">Layanan Kami</h2>
+
+<div class="grid">
+
+    <div class="card">
+        <h3>🎮 Joki Akun</h3>
+
+        <div class="price">Mulai Rp10K / Match</div>
+
+        <div class="feature"><span>✔</span> Push Rank Gm - Immortal</div>
+        <div class="feature"><span>✔</span> Fast Process</div>
+        <div class="feature"><span>✔</span> Update Progress</div>
+        <div class="feature"><span>✔</span> Dikerjakan Pro Player</div>
+
+        <a href="#" class="button" style="margin-top:20px;display:inline-block;">Pesan</a>
+    </div>
+
+    <div class="card">
+        <h3>🤝 Joki Gendong</h3>
+
+        <div class="price">Mulai Rp15K / Match</div>
+
+        <div class="feature"><span>✔</span>Main Bareng Top Global Hayabusa Ex Bintang 500</div>
+        <div class="feature"><span>✔</span><span>Cocok Naik Rank</span></div>
+        <div class="feature"><span>✔</span><span>Bisa Request Role</span></div>
+        <div class="feature"><span>✔</span><span>Voice Chat Opsional</span></div>
+
+        <a href="#" class="button" style="margin-top:20px;display:inline-block;">Pesan</a>
+    </div>
+
+    <div class="card">
+        <h3>⭐ Paket Push Rank</h3>
+
+        <div class="price">Custom</div>
+
+        <div class="feature"><span>✔</span><span>Paket Mingguan</span></div>
+        <div class="feature"><span>✔</span><span>Paket Bulanan</span></div>
+        <div class="feature"><span>✔</span><span>Jaminan Bintang</span></div>
+        <div class="feature"><span>✔</span><span>Harga Lebih Hemat</span></div>
+
+        <a href="#" class="button" style="margin-top:20px;display:inline-block;">Pesan</a>
+    </div>
+
+</div>
+
+</section>
+
+<section id="harga">
+
+<h2 class="title">Daftar Harga</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Gm ➜ Epic</h3>
+<div class="price">Rp20K</div>
+
+<div class="feature"><span>✔</span><span>Aman</span></div>
+<div class="feature"><span>✔</span><span>Proses cepat</span></div>
+<div class="feature"><span>✔</span><span>Estimasi Kurang Dari 1 Hari</span></div>
+
+</div>
+
+<div class="card">
+<h3>Epic ➜ Legend</h3>
+<div class="price">Rp75K</div>
+
+<div class="feature"><span>✔</span><span>Fast Process</span></div>
+<div class="feature"><span>✔</span><span>Win Rate Tinggi</span></div>
+<div class="feature"><span>✔</span><span>Update Progress</span></div>
+
+</div>
+
+<div class="card">
+<h3>Legend ➜ Mythic</h3>
+<div class="price">Rp100K</div>
+
+<div class="feature"><span>✔</span><span>Aman</span></div>
+<div class="feature"><span>✔</span><span>Pro Player</span></div>
+<div class="feature"><span>✔</span><span>Estimasi 1 Hari</span></div>
+
+</div>
+
+<div class="card">
+
+<h3>Mythic ➜ Immortal</h3>
+
+<div class="price">Mulai Rp500K</div>
+
+<div class="feature"><span>✔</span><span>Top Player</span></div>
+<div class="feature"><span>✔</span><span>Prioritas</span></div>
+<div class="feature"><span>✔</span><span>Garansi</span></div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="testimoni">
+
+<h2 class="title">Testimoni</h2>
+
+<div class="testi">
+
+<div class="card">
+
+★★★★★
+
+<p style="margin-top:15px">
+"Proses cepat, admin ramah, semalam langsung Mythic."
+</p>
+
+<h4 style="margin-top:20px">
+- Padil
+</h4>
+
+</div>
+
+<div class="card">
+
+★★★★★
+
+<p style="margin-top:15px">
+"Win rate tinggi dan selalu dikasih update."
+</p>
+
+<h4 style="margin-top:20px">
+- Rizky
+</h4>
+
+</div>
+
+<div class="card">
+
+★★★★★
+
+<p style="margin-top:15px">
+"Harga masuk akal, hasil sesuai."
+</p>
+
+<h4 style="margin-top:20px">
+- baktiar
+</h4>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>4CE</h2>
+
+<p style="margin-top:15px">
+WhatsApp : 0812-XXXX-XXXX
+</p>
+
+<p>
+Instagram : @4CE
+</p>
+
+<p style="margin-top:20px">
+© 2026 4CE.
+</p>
+
+</footer>
+
+<a class="whatsapp" href="#">💬</a>
+
+</body>
+</html>
