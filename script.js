@@ -1,27 +1,61 @@
+/* =====================================
+   JOKVET80 - SCRIPT.JS
+===================================== */
 
+
+/* =====================================
+   NAVBAR SCROLL
+===================================== */
 
 const navbar = document.querySelector("nav");
 
 window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 40) {
+    if (window.scrollY > 50) {
 
-        navbar.style.boxShadow =
-            "0 20px 45px -15px rgba(0,0,0,.55)";
-
-        navbar.style.opacity = "1";
-        navbar.style.visibility = "visible";
+        navbar.style.background = "rgba(8,17,31,.97)";
+        navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,.35)";
 
     } else {
 
+        navbar.style.background = "rgba(8,17,31,.85)";
         navbar.style.boxShadow = "none";
 
-        navbar.style.opacity = "1";
-        navbar.style.visibility = "visible";
     }
 
 });
 
+
+/* =====================================
+   SMOOTH SCROLL
+===================================== */
+
+document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", function(e) {
+
+        const href = this.getAttribute("href");
+
+        const target = document.querySelector(href);
+
+        if (target) {
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+});
+
+
+/* =====================================
+   CARD ANIMATION
+===================================== */
 
 const cards = document.querySelectorAll(".card");
 
@@ -34,7 +68,204 @@ const observer = new IntersectionObserver(entries => {
             entry.target.style.opacity = "1";
             entry.target.style.transform = "translateY(0)";
 
+            observer.unobserve(entry.target);
+
         }
+
+    });
+
+}, {
+
+    threshold: .15
+
+});
+
+
+cards.forEach(card => {
+
+    card.style.opacity = "0";
+
+    card.style.transform = "translateY(50px)";
+
+    card.style.transition = ".6s";
+
+    observer.observe(card);
+
+});
+
+
+/* =====================================
+   COUNTER
+===================================== */
+
+const counters = document.querySelectorAll(".stat h2");
+
+const counterObserver = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (!entry.isIntersecting) return;
+
+        const counter = entry.target;
+
+        const text = counter.innerText.trim();
+
+        const match = text.match(/^(\d+)([+%])$/);
+
+        if (!match) {
+
+            counterObserver.unobserve(counter);
+
+            return;
+
+        }
+
+        const target = parseInt(match[1]);
+
+        const symbol = match[2];
+
+        let current = 0;
+
+        const update = () => {
+
+            const increment = Math.ceil(target / 80);
+
+            current += increment;
+
+            if (current > target) {
+
+                current = target;
+
+            }
+
+            counter.innerText = current + symbol;
+
+            if (current < target) {
+
+                requestAnimationFrame(update);
+
+            }
+
+        };
+
+        update();
+
+        counterObserver.unobserve(counter);
+
+    });
+
+});
+
+
+counters.forEach(counter => {
+
+    counterObserver.observe(counter);
+
+});
+
+
+/* =====================================
+   WHATSAPP BUTTON
+===================================== */
+
+const wa = document.querySelector(".whatsapp");
+
+if (wa) {
+
+    wa.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        window.open(
+
+            "https://wa.me/6281234567890?text=Halo%20Admin,%20Saya%20ingin%20order%20Jasa%20Joki%20Rank",
+
+            "_blank"
+
+        );
+
+    });
+
+}
+
+
+/* =====================================
+   ORDER BUTTON
+===================================== */
+
+document.querySelectorAll(".button").forEach(button => {
+
+    button.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        window.open(
+
+            "https://wa.me/6281234567890?text=Halo%20Admin,%20Saya%20ingin%20order%20Jasa%20Joki%20Rank",
+
+            "_blank"
+
+        );
+
+    });
+
+});
+
+
+/* =====================================
+   ACTIVE NAVBAR
+===================================== */
+
+const sections = document.querySelectorAll("section[id], footer[id]");
+
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+
+function activeMenu() {
+
+    let current = "home";
+
+    const scrollPosition = window.scrollY + 180;
+
+    sections.forEach(section => {
+
+        if (scrollPosition >= section.offsetTop) {
+
+            current = section.id;
+
+        }
+
+    });
+
+
+    if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 5
+    ) {
+
+        current = "kontak";
+
+    }
+
+
+    navLinks.forEach(link => {
+
+        link.classList.toggle(
+
+            "active",
+
+            link.getAttribute("href") === "#" + current
+
+        );
+
+    });
+
+}
+
+
+window.addEventListener("scroll", activeMenu);
+
+window.addEventListener("load", activeMenu);        }
 
     });
 
