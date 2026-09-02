@@ -59,9 +59,6 @@ a{
   color:inherit;
 }
 
-
-/* AURORA */
-
 .aurora{
   position:fixed;
   inset:0;
@@ -86,9 +83,6 @@ a{
     radial-gradient(1.5px 1.5px at 15% 85%, rgba(255,255,255,.4) 0, transparent 100%);
   opacity:.7;
 }
-
-
-/* GLASS */
 
 .glass{
   position:relative;
@@ -119,9 +113,6 @@ a{
   border-radius:1px;
 }
 
-
-/* NAVBAR */
-
 nav{
   position:fixed;
   top:16px;
@@ -135,16 +126,6 @@ nav{
   border-radius:100px;
   z-index:100;
   transition:.4s;
-}
-
-.logo{
-  font-weight:700;
-  font-size:20px;
-  letter-spacing:.5px;
-  background:linear-gradient(120deg,#fff,var(--nebula-cyan));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
 }
 
 nav ul{
@@ -175,8 +156,11 @@ nav a.active{
   font-weight:600;
 }
 
-
-/* HOME */
+img[src="image/logo.png"]{
+  width:72px;
+  height:auto;
+  flex-shrink:0;
+}
 
 .inti{
   min-height:100vh;
@@ -241,9 +225,6 @@ nav a.active{
   max-width:480px;
 }
 
-
-/* BUTTON */
-
 .cta-row{
   display:flex;
   gap:14px;
@@ -283,9 +264,6 @@ nav a.active{
   transform:translateY(-3px);
 }
 
-
-/* ORB */
-
 .orb-wrap{
   position:relative;
   width:340px;
@@ -298,11 +276,7 @@ nav a.active{
   inset:0;
   border-radius:50%;
   background:
-    radial-gradient(
-      circle at 32% 28%,
-      rgba(255,255,255,.85),
-      transparent 40%
-    ),
+    radial-gradient(circle at 32% 28%, rgba(255,255,255,.85), transparent 40%),
     conic-gradient(
       from 210deg,
       var(--nebula-violet),
@@ -355,9 +329,6 @@ nav a.active{
   }
 }
 
-
-/* STATS */
-
 .stats{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
@@ -383,12 +354,13 @@ nav a.active{
   font-size:13px;
 }
 
-
-/* SECTION */
-
 section{
   padding:100px 8%;
   position:relative;
+}
+
+section[id]{
+  scroll-margin-top:120px;
 }
 
 .section-head{
@@ -412,17 +384,11 @@ section{
   font-size:15px;
 }
 
-
-/* GRID */
-
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
   gap:22px;
 }
-
-
-/* CARD */
 
 .card{
   padding:32px;
@@ -497,9 +463,6 @@ section{
   justify-content:center;
 }
 
-
-/* HARGA */
-
 .tier-card{
   padding:30px;
   border-radius:22px;
@@ -536,11 +499,6 @@ section{
   border:1px solid rgba(255,176,32,.4);
 }
 
-.tier-card h3{
-  font-size:20px;
-  font-weight:600;
-}
-
 .tier-card .price{
   margin:8px 0 18px;
 }
@@ -556,9 +514,6 @@ section{
 .tier-mythic .price{
   color:#ffcf7d;
 }
-
-
-/* IMMORTAL */
 
 .tier-immortal{
   padding:2px;
@@ -617,9 +572,6 @@ section{
   color:transparent;
 }
 
-
-/* TESTIMONI */
-
 .testi{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -677,9 +629,6 @@ section{
   color:var(--text-dim);
 }
 
-
-/* FOOTER */
-
 footer{
   padding:70px 8% 40px;
   text-align:center;
@@ -729,9 +678,6 @@ footer .copyright{
   font-size:12.5px;
 }
 
-
-/* WHATSAPP */
-
 .whatsapp{
   position:fixed;
   right:26px;
@@ -757,9 +703,6 @@ footer .copyright{
   transform:translateY(-4px) scale(1.05);
 }
 
-
-/* REVEAL */
-
 .reveal{
   opacity:0;
   transform:translateY(40px);
@@ -773,7 +716,6 @@ footer .copyright{
   transform:translateY(0);
 }
 
-
 nav.glass{
   position:fixed !important;
   top:16px !important;
@@ -784,19 +726,6 @@ nav.glass{
   opacity:1 !important;
   display:flex !important;
 }
-
-
-section[id]{
-  scroll-margin-top:120px;
-}
-
-
-img[src="image/logo.png"]{
-  width:72px;
-  height:auto;
-  flex-shrink:0;
-}
-
 
 @media (prefers-reduced-motion:reduce){
 
@@ -812,9 +741,6 @@ img[src="image/logo.png"]{
   }
 
 }
-
-
-/* MOBILE */
 
 @media (max-width:860px){
 
@@ -894,23 +820,10 @@ img[src="image/logo.png"]{
   <img src="image/logo.png">
 
   <ul>
-
-    <li>
-      <a href="#home" class="active">Home</a>
-    </li>
-
-    <li>
-      <a href="#layanan">Layanan</a>
-    </li>
-
-    <li>
-      <a href="#harga">Harga</a>
-    </li>
-
-    <li>
-      <a href="#testimoni">Testimoni</a>
-    </li>
-
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#harga">Harga</a></li>
+    <li><a href="#testimoni">Testimoni</a></li>
   </ul>
 
 </nav>
@@ -933,15 +846,8 @@ img[src="image/logo.png"]{
     </p>
 
     <div class="cta-row">
-
-      <a class="button" href="#harga">
-        Order Sekarang
-      </a>
-
-      <a class="button ghost" href="#layanan">
-        Lihat Layanan
-      </a>
-
+      <a class="button" href="#harga">Order Sekarang</a>
+      <a class="button ghost" href="#layanan">Lihat Layanan</a>
     </div>
 
   </div>
@@ -952,15 +858,8 @@ img[src="image/logo.png"]{
     <div class="orb"></div>
 
     <div class="orb-glass">
-
-      <div class="rank">
-        Target Rank
-      </div>
-
-      <div class="rank-name">
-        Mythic
-      </div>
-
+      <div class="rank">Target Rank</div>
+      <div class="rank-name">Mythic</div>
     </div>
 
   </div>
@@ -1249,28 +1148,88 @@ img[src="image/logo.png"]{
     </div>
 
 
+    <div class="tier-card tier-mythic glass reveal">
+
+      <div class="tier-badge">
+        Mythic ➜ Mythical Honor
+      </div>
+
+      <h3>0 ➜ 25 Bintang</h3>
+
+      <div class="price">
+        Rp6K / Bintang
+      </div>
+
+      <div class="feature">
+        <span class="tick">✓</span>
+        Pro Player
+      </div>
+
+      <div class="feature">
+        <span class="tick">✓</span>
+        Update Progress
+      </div>
+
+      <div class="feature">
+        <span class="tick">✓</span>
+        Fast Process
+      </div>
+
+    </div>
+
+
+    <div class="tier-card tier-mythic glass reveal">
+
+      <div class="tier-badge">
+        Mythical Honor ➜ Mythical Glory
+      </div>
+
+      <h3>25 ➜ 50 Bintang</h3>
+
+      <div class="price">
+        Rp8K / Bintang
+      </div>
+
+      <div class="feature">
+        <span class="tick">✓</span>
+        Player Berpengalaman
+      </div>
+
+      <div class="feature">
+        <span class="tick">✓</span>
+        Prioritas Pengerjaan
+      </div>
+
+      <div class="feature">
+        <span class="tick">✓</span>
+        Update Progress
+      </div>
+
+    </div>
+
+
     <div class="tier-immortal reveal">
 
       <div class="tier-immortal-inner">
 
         <div class="tier-badge">
-          Mythic ➜ Immortal
+          Mythical Glory ➜ Mythical Immortal
         </div>
 
-        <h3>Mulai Rp500K</h3>
+        <h3>50 ➜ 100 Bintang</h3>
 
         <div class="price">
-          Rp8K / Bintang
+          Rp10K / Bintang
         </div>
 
         <div class="feature">
           <span class="tick">✓</span>
-          Top player
+          High Rank Player
         </div>
 
         <div class="feature">
           <span class="tick">✓</span>
-          Prioritas
+          Prioritas Pengerjaan
         </div>
 
         <div class="feature">
@@ -1403,16 +1362,11 @@ img[src="image/logo.png"]{
 
     <div class="foot-links">
 
-      <a
-        href="https://wa.me/6283184140131?text=Halo%20Admin,%20Saya%20ingin%20order%20Jasa%20Joki%20Rank"
-      >
+      <a href="https://wa.me/6283184140131?text=Halo%20Admin,%20Saya%20ingin%20order%20Jasa%20Joki%20Rank">
         WhatsApp : 0831-XXXX-XXXX
       </a>
 
-      <a
-        href="https://instagram.com/4ceeeexi"
-        target="_blank"
-      >
+      <a href="https://instagram.com/4ceeeexi" target="_blank">
         Instagram : @4CE
       </a>
 
@@ -1427,10 +1381,7 @@ img[src="image/logo.png"]{
 </footer>
 
 
-<a
-  class="whatsapp"
-  href="#"
->
+<a class="whatsapp" href="#">
   💬
 </a>
 
